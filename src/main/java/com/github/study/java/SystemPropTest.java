@@ -1,5 +1,6 @@
 package com.github.study.java;
 
+import com.github.study.java.util.JSONs;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,8 +11,10 @@ import org.apache.commons.lang3.StringUtils;
 @Slf4j
 public class SystemPropTest {
     public static void main(String[] args) {
-        System.getProperties().forEach((key, value) -> log.info("{} : {}", key, value));
+        String props = JSONs.writeValueAsString(System.getProperties(), true);
+        log.info(props);
         System.out.println(StringUtils.repeat("=", 80));
-        System.getenv().forEach((key, value) -> log.info("{} : {}", key, value));
+        String envs = JSONs.writeValueAsString(System.getenv(), true);
+        log.info(envs);
     }
 }
