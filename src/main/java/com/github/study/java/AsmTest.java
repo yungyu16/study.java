@@ -22,7 +22,6 @@ public class AsmTest {
                 Opcodes.ACC_PUBLIC,// 类修饰符
                 "Programmer", // 类的全限定名
                 null, "java/lang/Object", null);
-
         //创建构造函数
         MethodVisitor mv = classWriter.visitMethod(Opcodes.ACC_PUBLIC, "<init>", "()V", null, null);
         mv.visitCode();
@@ -31,7 +30,6 @@ public class AsmTest {
         mv.visitInsn(Opcodes.RETURN);
         mv.visitMaxs(1, 1);
         mv.visitEnd();
-
         // 定义code方法
         MethodVisitor methodVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC, "code", "()V",
                 null, null);
