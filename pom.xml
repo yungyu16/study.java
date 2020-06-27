@@ -180,6 +180,11 @@
             <version>2.11.0</version>
         </dependency>
         <dependency>
+            <groupId>com.chrisnewland</groupId>
+            <artifactId>jitwatch</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.openjdk.jol</groupId>
             <artifactId>jol-core</artifactId>
             <version>0.9</version>
