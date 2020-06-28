@@ -1,5 +1,7 @@
 package com.github.study.java;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.print.*;
 import javax.print.attribute.HashDocAttributeSet;
 import javax.print.attribute.HashPrintRequestAttributeSet;
@@ -21,11 +23,15 @@ public class PrintTest {
     public static void main(String[] args) throws Exception {
 
         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
+        System.out.println(printService.toString());
         Path path = Paths.get("test.png");
+        newLine();
         System.out.println(path.toAbsolutePath());
+        newLine();
         for (DocFlavor flavor : printService.getSupportedDocFlavors()) {
             System.out.println(flavor.toString());
         }
+        newLine();
         Doc doc = new SimpleDoc(Files.readAllBytes(path), DocFlavor.BYTE_ARRAY.AUTOSENSE, new HashDocAttributeSet());
         DocPrintJob printJob = printService.createPrintJob();
         printJob.addPrintJobListener(new JobCompleteMonitor());
@@ -34,6 +40,10 @@ public class PrintTest {
         attrs.add(MediaSizeName.ISO_A4);
         printJob.print(doc, attrs);
         TimeUnit.SECONDS.sleep(30);
+    }
+
+    private static void newLine() {
+        System.out.println(StringUtils.repeat("#", 100));
     }
 
     private static class JobCompleteMonitor extends PrintJobAdapter {
