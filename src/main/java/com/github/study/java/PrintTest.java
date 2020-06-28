@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class PrintTest {
     public static void main(String[] args) throws Exception {
+
         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
         Path path = Paths.get("test.png");
         System.out.println(path.toAbsolutePath());

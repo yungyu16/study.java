@@ -16,5 +16,6 @@ public class SystemPropTest {
         System.out.println(StringUtils.repeat("=", 80));
         String envs = JSONs.writeValueAsString(System.getenv(), true);
         log.info(envs);
+
     }
 }
