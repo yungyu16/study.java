@@ -12,6 +12,8 @@ public class GcTest {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("begin");
         ArrayList<Object> objects = Lists.newArrayList();
-
+        for (; ; ) {
+            objects.add(new byte[1024 * 1024]);
+        }
     }
 }
