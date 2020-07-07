@@ -1,5 +1,7 @@
 package com.github.study.java;
 
+import org.springframework.stereotype.Component;
+
 import java.lang.management.*;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import java.util.List;
  * CreatedDate: 2020/7/2
  * Author: songjialin
  */
+@Component
 public class MxBeanTest {
     public static void main(String[] args) {
         List<MemoryPoolMXBean> memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
