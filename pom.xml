@@ -22,19 +22,24 @@
             <artifactId>jdk.tools</artifactId>
             <version>jdk1.8.0</version>
             <scope>system</scope>
-            <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+            <systemPath>${java.home}/../lib/tools.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>jdk.tools</groupId>
             <artifactId>sa-jdi</artifactId>
             <version>jdk1.8.0</version>
             <scope>system</scope>
-            <systemPath>${env.JAVA_HOME}/lib/sa-jdi.jar</systemPath>
+            <systemPath>${java.home}/../lib/sa-jdi.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.rocksdb</groupId>
             <artifactId>rocksdbjni</artifactId>
             <version>5.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>4.1.11</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>

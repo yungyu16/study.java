@@ -1,8 +1,6 @@
 package com.github.study.java;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.BitSet;
 
 /**
  * CreatedDate: 2020/7/20
@@ -10,8 +8,10 @@ import java.util.Set;
  */
 public class MapTest {
     public static void main(String[] args) {
-        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        final Set<Map.Entry<String, Integer>> entries = linkedHashMap.entrySet();
-        entries.iterator();
+        final BitSet bitSet = BitSet.valueOf(new byte[]{1, 2});
+        System.out.println(bitSet.get(0));
+        System.out.println(bitSet.get(7));
+        System.out.println(bitSet.get(14));
+
     }
 }
