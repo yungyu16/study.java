@@ -2,7 +2,6 @@ package com.github.study.java;
 
 import com.wf.captcha.GifCaptcha;
 import eu.bitwalker.useragentutils.UserAgent;
-import generator.RandomUserAgentGenerator;
 
 /**
  * CreatedDate: 2020/7/15
@@ -19,6 +18,5 @@ public class UdpTest2 {
         GifCaptcha specCaptcha = new GifCaptcha(150, 75, 5);
         System.out.println(specCaptcha.text());
         System.out.println(specCaptcha.toBase64());
-        String randomUserAgent = RandomUserAgentGenerator.getNext();
     }
 }
