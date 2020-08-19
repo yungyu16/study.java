@@ -49,6 +49,6 @@ public class IPUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(getCityInfo("180.97.34.96"));
+        System.out.println(getCityInfo("47.102.136.139"));
     }
 }
