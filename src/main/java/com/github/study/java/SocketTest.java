@@ -2,6 +2,7 @@ package com.github.study.java;
 
 import io.netty.util.internal.PlatformDependent;
 import io.netty.util.internal.SuppressJava6Requirement;
+import org.springframework.util.StopWatch;
 
 import java.net.*;
 import java.security.AccessController;
@@ -17,10 +18,27 @@ import java.util.Enumeration;
  */
 public class SocketTest {
     public static void main(String[] args) throws UnknownHostException {
+        StopWatch inet = new StopWatch("inet");
+        inet.start("addressByName");
         InetAddress x = addressByName("www.50lion.com");
-        InetAddress[] y = allAddressesByName("www.50lion.com");
-        System.out.println(x);
+        inet.stop();
+        inet.start("allAddressesByName");
+        InetAddress[] y = allAddressesByName("www.baidu.com");
+        inet.stop();
+        inet.start("getCanonicalHostName");
+        System.out.println(x.getCanonicalHostName());
+        inet.stop();
+        inet.start("getHostAddress");
+        System.out.println(x.getHostAddress());
+        inet.stop();
+        inet.start("getHostName");
+        System.out.println(x.getHostName());
+        inet.stop();
+        inet.start("getAddress");
+        System.out.println(Arrays.toString(x.getAddress()));
+        inet.stop();
         System.out.println(Arrays.toString(y));
+        System.out.println(inet.prettyPrint());
     }
 
     public static InetAddress addressByName(final String hostname) throws UnknownHostException {
