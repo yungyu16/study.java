@@ -1,7 +1,8 @@
 package com.github.study.java;
 
-import java.time.LocalDate;
-import java.time.Period;
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ClassInfo;
+import io.github.classgraph.ScanResult;
 
 
 /**
@@ -10,7 +11,16 @@ import java.time.Period;
  */
 public class CsvTest {
     public static void main(String[] args) throws Exception {
-        int days = Period.between(LocalDate.now(), LocalDate.now().plusDays(30)).getDays();
-        System.out.println(days);
+        String pkg = "com.github.study.java";
+        try (ScanResult scanResult =
+                     new ClassGraph()
+                             .verbose()                   // Log to stderr
+                             .enableAllInfo()             // Scan classes, methods, fields, annotations
+                             .acceptPackages(pkg)         // Scan com.xyz and subpackages (omit to scan all packages)
+                             .scan()) {                   // Start the scan
+            for (ClassInfo routeClassInfo : scanResult.getAllClasses()) {
+                System.out.println(routeClassInfo);
+            }
+        }
     }
 }
