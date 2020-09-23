@@ -1,5 +1,9 @@
 package com.github.study.java;
 
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.BitSet;
 
 /**
@@ -13,5 +17,12 @@ public class MapTest {
         System.out.println(bitSet.get(7));
         System.out.println(bitSet.get(14));
 
+        FileSystem fs = FileSystems.getDefault();
+        System.out.println(fs.getSeparator());
+        Path path = Paths.get("../study.java/./../src/../main");
+        System.out.println(path.normalize());
+        System.out.println(path.normalize().toAbsolutePath());
+        System.out.println(path.normalize().toAbsolutePath().normalize());
+        System.out.println(path.toAbsolutePath());
     }
 }
