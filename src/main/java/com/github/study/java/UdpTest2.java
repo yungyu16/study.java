@@ -3,6 +3,10 @@ package com.github.study.java;
 import com.wf.captcha.GifCaptcha;
 import eu.bitwalker.useragentutils.UserAgent;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.zip.ZipInputStream;
+
 /**
  * CreatedDate: 2020/7/15
  * Author: songjialin
@@ -18,5 +22,9 @@ public class UdpTest2 {
         GifCaptcha specCaptcha = new GifCaptcha(150, 75, 5);
         System.out.println(specCaptcha.text());
         System.out.println(specCaptcha.toBase64());
+
+
+        ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(Paths.get("C:\\Users\\songjialin\\Desktop", "hello.zip")));
+        System.out.println(zipInputStream.getNextEntry());
     }
 }
