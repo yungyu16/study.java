@@ -663,5 +663,10 @@
             <artifactId>hutool-core</artifactId>
             <version>5.3.8</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
     </dependencies>
 </project>
