@@ -1,5 +1,6 @@
 package jdbc
 
+import groovy.sql.DataSet
 import groovy.sql.Sql
 import groovy.xml.MarkupBuilder
 
@@ -16,7 +17,8 @@ def a = { ->
 Sql sql = Sql.newInstance("jdbc:mysql://mysql-dev.50lion.com:3306/daiquhua_app_dev", "admin",
         "admin123456")
 
-sql.eachRow("select * from nation") {
-    row ->
-        println row.nation_code + " " + row.city + " " + row.province
+sql.eachRow("select * from nation") { row ->
+    println row.nation_code + " " + row.city + " " + row.province
 }
+
+DataSet dataSet = sql.dataSet("area");
