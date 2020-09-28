@@ -35,7 +35,6 @@ public class RocketMqTest {
                     "TagA" /* Tag */, "",
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
             );
-            msg.setKeys();
             //Call send message to deliver message to one of brokers.
             SendResult sendResult = producer.send(new Message());
             System.out.printf("%s%n", sendResult);
@@ -45,7 +44,7 @@ public class RocketMqTest {
         // Instantiate with specified consumer group name.
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
 
-        // Specify name server addresses.
+        // Specify name server addresses.7
         consumer.setNamesrvAddr("localhost:9876");
 
         // Subscribe one more more topics to consume.
