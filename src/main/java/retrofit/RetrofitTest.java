@@ -2,12 +2,14 @@ package retrofit;
 
 import lombok.SneakyThrows;
 import okhttp3.ResponseBody;
+import okio.ByteString;
 import retrofit2.*;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 
 /**
  * CreatedDate: 2020/9/30
@@ -24,7 +26,7 @@ public class RetrofitTest {
                             @Nullable
                             @Override
                             public Object convert(ResponseBody value) throws IOException {
-                                return value.string();
+                                return ByteString.of(value.bytes()).string(StandardCharsets.UTF_8);
                             }
                         };
                     }
@@ -43,7 +45,8 @@ public class RetrofitTest {
                                 @SneakyThrows
                                 @Override
                                 public Object adapt(Call<Object> call) {
-                                    return Response.success(call.execute());
+                                    Response<Object> execute = call.execute();
+                                    return execute.body();
                                 }
                             };
                         }
@@ -54,7 +57,6 @@ public class RetrofitTest {
                 .build();
 
         Test test = build.create(Test.class);
-        Response<String> main = test.main();
-        System.out.println(main.body());
+        System.out.println(test.main());
     }
 }
