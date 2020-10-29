@@ -21,5 +21,17 @@ public class AhcTest {
         Timeout timeout = new Timeout();
         timeout.timeout(5, TimeUnit.SECONDS);
         timeout.throwIfReached();
+
+        Exception exception = new Exception();
+        fill(exception);
+        exception.printStackTrace();
+
+    }
+
+    private static void fill(Exception exception) {
+        exception.fillInStackTrace();
+        exception.addSuppressed(new NullPointerException("111"));
+        exception.addSuppressed(new NullPointerException("222"));
+        exception.initCause(new NullPointerException("3333"));
     }
 }
