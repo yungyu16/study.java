@@ -1,5 +1,6 @@
 package com.github.study.java;
 
+import com.sun.tools.attach.VirtualMachine;
 import okio.Timeout;
 import org.asynchttpclient.Dsl;
 import org.asynchttpclient.Request;
@@ -33,5 +34,13 @@ public class AhcTest {
         exception.addSuppressed(new NullPointerException("111"));
         exception.addSuppressed(new NullPointerException("222"));
         exception.initCause(new NullPointerException("3333"));
+    }
+
+    public static void test(String[] args) throws Exception {
+        String pid = "12345"; // 12345改成你想attach的java进程id
+        String agentPath = "/path_to_agent"; // path_to_agent为你编译的agent的路径
+        VirtualMachine virtualMachine = com.sun.tools.attach.VirtualMachine.attach(pid);
+        virtualMachine.loadAgentPath(agentPath, null);
+        virtualMachine.detach();
     }
 }
