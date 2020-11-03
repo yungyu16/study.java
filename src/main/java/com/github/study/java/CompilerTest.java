@@ -1,9 +1,9 @@
 package com.github.study.java;
 
-import javax.tools.DocumentationTool;
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 import java.io.IOException;
+import java.util.ServiceLoader;
 
 /**
  * CreatedDate: 2020/6/24
@@ -13,11 +13,10 @@ public class CompilerTest {
     public static final String SRC_FILE = "src/main/java/com/github/study/java/AsmTest.java";
 
     public static void main(String[] args) throws IOException {
+        ServiceLoader<JavaCompiler> load = ServiceLoader.load(JavaCompiler.class);
+        load.forEach(System.out::println);
         JavaCompiler systemJavaCompiler = ToolProvider.getSystemJavaCompiler();
-        DocumentationTool systemDocumentationTool = ToolProvider.getSystemDocumentationTool();
-        int retCode = systemDocumentationTool.run(System.in, System.out, System.err);
-        System.out.println(retCode);
-        retCode = systemJavaCompiler.run(System.in, System.out, System.err, SRC_FILE);
+        int retCode = systemJavaCompiler.run(System.in, System.out, System.err, SRC_FILE);
         System.out.println(retCode);
     }
 }
