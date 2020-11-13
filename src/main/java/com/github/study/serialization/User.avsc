@@ -1,0 +1,26 @@
+{
+   "namespace": "net.bigdataer.demo.avro",
+   "type": "record",
+   "name": "User",
+   "fields": [
+      {
+         "name": "name",
+         "type": "string",
+         "doc":"姓名"
+      },
+      {
+         "name": "favorite_number",
+         "type": [
+            "int",
+            "null"
+         ]
+      },
+      {
+         "name": "favorite_color",
+         "type": [
+            "string",
+            "null"
+         ]
+      }
+   ]
+}
