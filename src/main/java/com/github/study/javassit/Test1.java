@@ -14,7 +14,6 @@ public class Test1 {
         ClassPool classPool = ClassPool.getDefault();
         //定义User类
         CtClass ctClassUser = classPool.makeClass("com.tianshouzhi.User");
-
         //定义name字段
         CtClass fieldType = classPool.get("java.lang.String");//字段类型
         String name = "name";//字段名称

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.util.Set;
 
 /**
@@ -22,7 +23,10 @@ public class ClassReading {
     public static void main(String[] args) throws IOException {
         A annotation = AnnotationUtils.findAnnotation(ClassReading.class, A.class);
         System.out.println(annotation.str());
-
+        B annotationsByType = ClassReading.class.getAnnotation(B.class);
+        Class<? extends Annotation> aClass = annotationsByType.annotationType();
+        Class<? extends B> aClass1 = annotationsByType.getClass();
+        System.out.println("aClass == aClass1:" + (aClass == aClass1));
         StringBuilder sb = new StringBuilder();
         sb.append("均无").append(",");
         System.out.println(sb.substring(0, sb.length() - 1));
