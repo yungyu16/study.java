@@ -2,9 +2,7 @@ package com.github.study.rsa;
 
 import org.bouncycastle.util.encoders.Hex;
 
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
+import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
 import java.util.Arrays;
@@ -17,7 +15,24 @@ import java.util.Random;
  */
 public class RsaTest {
     public static void main(String[] args) throws Exception {
+        KeyStore hello = KeyStore.getInstance("hello");
+    }
 
+    private static void test3() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        KeyPairGenerator kp = KeyPairGenerator.getInstance("rsa");
+        kp.initialize(2048);
+        KeyPair keyPair = kp.generateKeyPair();
+        PrivateKey privateKey = keyPair.getPrivate();
+        Cipher rsa = Cipher.getInstance("rsa");
+        rsa.init(Cipher.ENCRYPT_MODE, privateKey);
+        byte[] data = new byte[4];
+        Arrays.fill(data, (byte) 1);
+        byte[] result = rsa.doFinal(data);
+        System.out.println(result.length);
+        System.out.println(Arrays.toString(result));
+    }
+
+    private static void test2() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         KeyPairGenerator kp = KeyPairGenerator.getInstance("rsa");
         KeyPair keyPair = kp.generateKeyPair();
         PrivateKey aPrivate = keyPair.getPrivate();
@@ -40,7 +55,7 @@ public class RsaTest {
         System.out.println(Hex.toHexString(result));
     }
 
-    private static void gen(Random random) {
+    private static void test1(Random random) {
         System.out.println(random.nextInt());
         System.out.println(random.nextInt());
         System.out.println(random.nextInt());
