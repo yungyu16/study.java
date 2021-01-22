@@ -6,9 +6,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
-import java.security.Provider;
-import java.security.SecureRandom;
+import java.security.*;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Random;
@@ -20,9 +18,12 @@ import java.util.Random;
 public class RsaTest {
     public static void main(String[] args) throws Exception {
 
+        KeyPairGenerator kp = KeyPairGenerator.getInstance("rsa");
+        KeyPair keyPair = kp.generateKeyPair();
+        PrivateKey aPrivate = keyPair.getPrivate();
+        KeyFactory kf = KeyFactory.getInstance("rsa");
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        Provider provider = keyGenerator.getProvider();
-        keyGenerator.init(256, new SecureRandom());
+        keyGenerator.init(100, new SecureRandom());
         SecretKey secretKey = keyGenerator.generateKey();
         byte[] byteKey = secretKey.getEncoded();
         System.out.println(byteKey.length);
