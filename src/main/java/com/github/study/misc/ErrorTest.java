@@ -20,7 +20,8 @@ public class ErrorTest {
                 throw new RuntimeException();
             }
         }, "test").start();
-
+        ExecTest.InnerTest innerTest = new ExecTest().new InnerTest();
+        Class<? extends ExecTest.InnerTest> aClass = innerTest.getClass();
 
         TimeUnit.SECONDS.sleep(5);
         System.out.println("e");
