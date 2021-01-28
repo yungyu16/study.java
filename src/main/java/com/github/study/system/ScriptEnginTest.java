@@ -1,7 +1,5 @@
 package com.github.study.system;
 
-import com.github.study.ResUtil;
-
 import javax.script.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -53,7 +51,7 @@ public class ScriptEnginTest {
         System.out.println(js.eval("i++"));
         System.out.println(js.eval("print(new Date())"));
         System.out.println(js.eval("i++"));
-        Path path = ResUtil.resolve("index.js").orElse(null);
+        Path path = null;
         assert path != null;
         String code = String.join("\n", Files.readAllLines(path));
         js.eval(code);
