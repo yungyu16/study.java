@@ -1,14 +1,16 @@
 package com.github.study.misc;
 
-import java.util.Arrays;
+import org.junit.Test;
+
+import java.io.IOException;
 
 /**
  * CreatedDate: 2020/8/21
  * Author: songjialin
  */
 public class MhTest {
-    public static void main(String[] args) {
-        Runnable r = () -> System.out.println(Arrays.toString(args));
-        r.run();
+    @Test
+    public void testClasspath() throws IOException {
+
     }
 }
