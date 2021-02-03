@@ -18,7 +18,6 @@ import java.lang.reflect.TypeVariable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @description Created on 2021/1/28.
@@ -58,12 +57,4 @@ public class TestMap<T extends InitializingBean & Serializable> extends HashMap<
     private <T extends InitializingBean> T hello() {
         return null;
     }
-}
-
-class A<T> {
-    private List<T> list;
-}
-
-class B extends A<String> {
-
 }
