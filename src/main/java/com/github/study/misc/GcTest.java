@@ -1,6 +1,6 @@
 package com.github.study.misc;
 
-import org.jupiter.common.util.Lists;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
