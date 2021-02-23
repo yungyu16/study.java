@@ -1,19 +1,25 @@
 package com.github.study.misc;
 
-import com.google.common.collect.Lists;
+import net.bramp.unsafe.UnsafeHelper;
+import sun.misc.Unsafe;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * CreatedDate: 2020/7/2
  * Author: songjialin
  */
 public class GcTest {
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("begin");
-        ArrayList<Object> objects = Lists.newArrayList();
-        for (; ; ) {
-            objects.add(new byte[1024 * 1024]);
-        }
+    private int a = 1;
+
+    public static void main(String[] args) throws InterruptedException, NoSuchFieldException {
+        GcTest gcTest = new GcTest();
+        Unsafe unsafe = UnsafeHelper.getUnsafe();
+        byte[] longs = new byte[100];
+//        System.out.println(unsafe.arrayIndexScale(longs.getClass()));
+//        System.out.println(unsafe.arrayBaseOffset(longs.getClass()));
+//        unsafe.setMemory();
+        unsafe.setMemory(longs, Unsafe.ARRAY_BYTE_BASE_OFFSET, 88 * 1, (byte) 8);
+        System.out.println(Arrays.toString(longs));
     }
 }
