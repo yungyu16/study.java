@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package p.a;
+
+import "A.proto";
+
+message Person{
+  int32 age = 1;
+  p.a.Car car = 2;
+  repeated int32 ids = 3;
+}

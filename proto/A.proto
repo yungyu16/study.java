@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package p.a;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/descriptor.proto";
+
+enum CarType{
+  BENCHI = 0;
+}
+extend google.protobuf.FieldOptions {
+  string aaa = 10001;
+}
+message Car{
+  string name = 1;
+  CarType type = 2 [deprecated = true]; //hello
+  google.protobuf.Any param = 3 [(aaa) = "hello"];
+}
+

@@ -1,0 +1,23 @@
+syntax = "proto3";
+package p.a;
+
+enum UserStatus {
+  OFFLINE = 0;
+  ONLINE = 1;
+}
+enum LoginResult {
+  LOGON_RESULT_SUCCESS = 0;
+  LOGON_RESULT_NOTEXIST = 1;
+  LOGON_RESULT_ERROR_PASSWD = 2;
+  LOGON_RESULT_ALREADY_LOGON = 3;
+  LOGON_RESULT_SERVER_ERROR = 4;
+}
+message UserInfo {
+  int64 acctID = 1;
+  string name = 2;
+  UserStatus status = 3;
+}
+message LogonRespMessage {
+  LoginResult logonResult = 1;
+  UserInfo userInfo = 2; //这里嵌套了UserInfo消息。
+}
