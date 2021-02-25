@@ -14,12 +14,14 @@ import io.protostuff.runtime.RuntimeSchema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jupiter.common.util.Maps;
 import org.msgpack.MessagePack;
 import org.msgpack.annotation.Message;
 import org.objenesis.strategy.StdInstantiatorStrategy;
 import p.a.Demo;
 
 import java.io.*;
+import java.util.HashMap;
 
 /**
  * CreatedDate: 2021/2/24
@@ -28,7 +30,13 @@ import java.io.*;
 public class ProtoTest {
     public static void main(String[] args) throws IOException {
         Person person = new Person("mushan", 20);
-        test4(person);
+        MessagePack messagePack = new MessagePack();
+        HashMap<Object, Object> map = Maps.newHashMap();
+        map.put("111", true);
+        map.put("222", 1);
+        map.put("444", "555");
+        byte[] bs = messagePack.write(map);
+        System.out.println(StringKit.newStringUtf8(bs));
     }
 
     private static void test5(Person person) {
