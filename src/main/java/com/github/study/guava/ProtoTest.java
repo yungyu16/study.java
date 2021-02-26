@@ -21,6 +21,8 @@ import org.objenesis.strategy.StdInstantiatorStrategy;
 import p.a.Demo;
 
 import java.io.*;
+import java.net.InetAddress;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -29,6 +31,13 @@ import java.util.HashMap;
  */
 public class ProtoTest {
     public static void main(String[] args) throws IOException {
+        InetAddress[] i1 = InetAddress.getAllByName("tettet.50lion.com");
+        System.out.println(Arrays.toString(i1));
+        InetAddress[] i2 = InetAddress.getAllByName("g-dev.50lion.com");
+        System.out.println(Arrays.toString(i2));
+    }
+
+    private static void get6() throws IOException {
         Person person = new Person("mushan", 20);
         MessagePack messagePack = new MessagePack();
         HashMap<Object, Object> map = Maps.newHashMap();
