@@ -1,0 +1,5 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+service HelloService1{
+  rpc sayHello(google.protobuf.Any) returns (google.protobuf.Any);
+}

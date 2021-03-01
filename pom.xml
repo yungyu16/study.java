@@ -574,25 +574,43 @@
         </dependency>
     </dependencies>
     <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.5.0.Final</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
-                <groupId>com.github.os72</groupId>
-                <artifactId>protoc-jar-maven-plugin</artifactId>
-                <version>3.1.0.1</version>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.1</version>
                 <configuration>
-                    <inputDirectories>
-                        <include>src/main/resources</include>
-                    </inputDirectories>
-                    <outputTargets>
-                        <outputTarget>
-                            <type>java</type>
-                        </outputTarget>
-                        <outputTarget>
-                            <type>grpc-java</type>
-                            <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.0.1</pluginArtifact>
-                        </outputTarget>
-                    </outputTargets>
+                    <protoSourceRoot>${project.basedir}/proto</protoSourceRoot>
+                    <protocArtifact>com.google.protobuf:protoc:3.5.1-1:exe:${os.detected.classifier}</protocArtifact>
+                    <outputDirectory>${project.build.sourceDirectory}/schema</outputDirectory>
+                    <clearOutputDirectory>true</clearOutputDirectory>
                 </configuration>
+                <executions>
+                    <execution>
+                        <configuration></configuration>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>grpc</id>
+                        <configuration>
+                            <pluginId>grpc-java</pluginId>
+                            <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.36.0:exe:${os.detected.classifier}
+                            </pluginArtifact>
+                        </configuration>
+                        <goals>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
