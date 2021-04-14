@@ -1,12 +1,7 @@
 package com.github.study.selenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import com.google.common.base.CharMatcher;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -20,20 +15,11 @@ import java.io.IOException;
  */
 public class BaiduSearch {
     public static void main(String[] args) throws InterruptedException, IOException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\songjialin\\Desktop\\chromedriver.exe");        // 1.创建webdriver驱动
-        ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("C:\\Users\\songjialin\\Desktop\\chromedriver.exe"))
-                .usingAnyFreePort()
-                .build();
-        service.start();
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
-        options.setCapability("javascriptEnabled", true);
-        WebDriver driver = new RemoteWebDriver(service.getUrl(), new ChromeOptions());
-        driver.get("https://hddt.pingan.com/manager/index.html#/login");
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getPageSource());
-        System.out.println(driver.findElement(By.id("loginName")));
+        String cookie = "Cookie: JSESSIONID=0AA3A7CB1C0069B67DE10407E6B61350; BIGipServerPOOL_PACLOUD_PRDR2019120306422=428188119.42107.0000\n";
+        System.out.println(cookie.trim());
+        System.out.println(cookie.trim().charAt(cookie.trim().length() - 1));
+        System.out.println("---");
+        System.out.println(CharMatcher.whitespace().removeFrom(cookie));
+
     }
 }
