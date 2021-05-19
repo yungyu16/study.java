@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.study</groupId>
@@ -577,6 +577,12 @@
             <artifactId>avro</artifactId>
             <version>1.8.1</version>
         </dependency>
+        <dependency>
+            <scope>compile</scope>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.13.1</version>
+        </dependency>
     </dependencies>
     <build>
         <extensions>
@@ -599,7 +605,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <configuration></configuration>
+                        <configuration />
                         <goals>
                             <goal>compile</goal>
                         </goals>
