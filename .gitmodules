@@ -1,0 +1,6 @@
+[submodule "bytecode/java8-classfile-tutorial"]
+	path = bytecode/java8-classfile-tutorial
+	url = https://github.com/lsieun/java8-classfile-tutorial.git
+[submodule "bytecode/learn-java-asm"]
+	path = bytecode/learn-java-asm
+	url = https://github.com/lsieun/learn-java-asm.git
