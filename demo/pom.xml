@@ -332,10 +332,6 @@
             <artifactId>luaj-jse</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.msgpack</groupId>
-            <artifactId>msgpack</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
         </dependency>
@@ -394,7 +390,6 @@
         <dependency>
             <groupId>org.msgpack</groupId>
             <artifactId>msgpack-core</artifactId>
-            <version>0.9.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
