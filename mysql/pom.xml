@@ -7,11 +7,13 @@
         <artifactId>sutdy-parent</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>study-bytecode</artifactId>
+    <artifactId>study-mysql</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
     <modules>
-        <module>java8-classfile-tutorial</module>
-        <module>learn-java-asm</module>
+        <module>mysql-protocol</module>
+        <module>MysqlProtocol</module>
+        <module>MysqlProtocolAnalyzer</module>
+        <module>nd-mysql</module>
     </modules>
 </project>

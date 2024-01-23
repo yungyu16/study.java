@@ -4,3 +4,15 @@
 [submodule "bytecode/learn-java-asm"]
 	path = bytecode/learn-java-asm
 	url = https://github.com/lsieun/learn-java-asm.git
+[submodule "mysql/mysql-protocol"]
+	path = mysql/mysql-protocol
+	url = https://github.com/sea-boat/mysql-protocol.git
+[submodule "mysql/nd-mysql"]
+	path = mysql/nd-mysql
+	url = https://github.com/tianzhenjiu/nd-mysql.git
+[submodule "mysql/MysqlProtocol"]
+	path = mysql/MysqlProtocol
+	url = https://github.com/huangyiminghappy/MysqlProtocol.git
+[submodule "mysql/MysqlProtocolAnalyzer"]
+	path = mysql/MysqlProtocolAnalyzer
+	url = https://github.com/yungyu16/MysqlProtocolAnalyzer.git
